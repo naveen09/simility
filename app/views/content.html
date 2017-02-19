@@ -1,10 +1,10 @@
 <div class="container">
-    <div class="form-group has-success">
-        <label class="form-control-label" for="search">
-        </label>
-        <input class="form-control form-control-success" id="search" placeholder="Search for a movie..." type="text">
+    <input class="form-control form-control-success" id="search" placeholder="Search for a movie..." type="text">
         </input>
-    </div>
-
-    <br/>
+        <div>
+        	<rzslider rz-slider-model="vm.slider.value" rz-slider-options="vm.slider.options"></rzslider>
+        </div>
+    <div class="row">
+        <movie data="data" ng-repeat="data in vm.items" class="col"></movie>
+	</div>
 </div>

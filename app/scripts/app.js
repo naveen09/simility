@@ -7,7 +7,7 @@
  *
  * Main module of the application.
  */
-angular.module('similityApp', ['ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.router']).config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
+angular.module('similityApp', ['ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ui.router', 'rzModule']).config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise("/");
     $stateProvider.state('/', {
         url: '/',
@@ -26,5 +26,5 @@ angular.module('similityApp', ['ngCookies', 'ngResource', 'ngRoute', 'ngSanitize
                 templateUrl: "../views/footer.html"
             }
         }
-    })
+    });
 }]);

@@ -1,0 +1,51 @@
+<div class="movie">
+        <div class="movie_content row">
+            <div class="col-md-3 movie_image">
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-8 movie_tile">
+                        {{data.movie_title}}&nbsp;({{data.title_year}})
+                    </div>
+                    <div class="col-md-4 pull-right movie_country">
+                        Country : {{data.country}}
+                    </div>
+                </div>
+                <div class="row m_t_10">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-4 text_align_r">
+                                Language :
+                            </div>
+                            <div class="col-8 pl0">
+                                {{data.language}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text_align_r">
+                                Director :
+                            </div>
+                            <div class="col-8 pl0">
+                                {{data.director_name}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 text_align_r">
+                                Actors :
+                            </div>
+                            <div class="col-8 pl0">
+                                {{data.actor_1_name}}, {{data.actor_2_name}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="movie_footer">
+            Genres: <span class="badge badge-warning">{{data.genres}}</span>
+            <div class="budget pull-right">
+                Budget : $ {{data.budget}}
+            </div>
+        </div>
+    </div>
