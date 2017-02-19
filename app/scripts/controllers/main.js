@@ -6,51 +6,38 @@
  * # MainCtrl
  * Controller of the similityApp
  */
-angular.module('similityApp').controller('mainCtrl', function() {
-
-
-}).controller('contentCtrl', ['$scope', 'movieService', function(scope, movieService) {
+angular.module('similityApp').controller('mainCtrl', function() {}).controller('contentCtrl', ['$scope', 'movieService', function(scope, movieService) {
     var vm = this;
+    vm.mask = true;
+    vm.grid = true;
+    vm.radioModel = 'Left';
+    vm.checkModel = {
+        left: false,
+        middle: true,
+        right: false
+    };
     vm.slider = {
         value: 0,
         options: {
-            step : 100,
+            step: 1000000,
             floor: 0,
-            ceil: 450
+            ceil: 1000000000
         }
     };
-    vm.items = [{
-        "movie_title": "Avatar ",
-        "director_name": "James Cameron",
-        "actor_1_name": "CCH Pounder",
-        "actor_2_name": "Joel David Moore",
-        "genres": "Action|Adventure|Fantasy|Sci-Fi",
-        "language": "English",
-        "country": "USA",
-        "content_rating": "PG-13",
-        "budget": "237000000",
-        "title_year": "2009",
-        "plot_keywords": "avatar|future|marine|native|paraplegic",
-        "movie_imdb_link": "http://www.imdb.com/title/tt0499549/?ref_=fn_tt_tt_1"
-    }, {
-        "movie_title": "Avatar ",
-        "director_name": "James Cameron",
-        "actor_1_name": "CCH Pounder",
-        "actor_2_name": "Joel David Moore",
-        "genres": "Action|Adventure|Fantasy|Sci-Fi",
-        "language": "English",
-        "country": "USA",
-        "content_rating": "PG-13",
-        "budget": "237000000",
-        "title_year": "2009",
-        "plot_keywords": "avatar|future|marine|native|paraplegic",
-        "movie_imdb_link": "http://www.imdb.com/title/tt0499549/?ref_=fn_tt_tt_1"
-    }];
-    movieService.getData().then(function(data) {
-        console.log(data.data);
+    vm.filter = '$';
+    vm.search = {
+        "movie_title": '',
+        "genres": '',
+        "budget": ''
+    };
+    movieService.getData().then(function(result) {
+        console.log(result.data);
+        vm.items = result.data
+        vm.mask = false;
     })
-
-
+    scope.toggleContent = function(state) {
+        console.log(state)
+    }
 }]).directive('movie', [function() {
     return {
         restrict: 'E',
@@ -59,8 +46,15 @@ angular.module('similityApp').controller('mainCtrl', function() {
         },
         replace: true,
         templateUrl: 'views/movie_template.html',
-        link: function(scope, iElement, iAttrs) {
-
-        }
+        link: function(scope, iElement, iAttrs) {}
     };
-}]);
+}]).filter('USD', function() {
+    return function(value) {
+        return value / 1000000 + " M";
+    }
+}).filter('ellipse', function() {
+    return function(value) {
+        if (value.length > 10) return value.substring(0, 10) + "...";
+        return value;
+    }
+});

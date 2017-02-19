@@ -1,14 +1,14 @@
-<div class="movie">
+<div class="movie col-5">
         <div class="movie_content row">
             <div class="col-md-3 movie_image">
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-8 movie_tile">
-                        {{data.movie_title}}&nbsp;({{data.title_year}})
+                    <div class="col-md-8 movie_title" title="{{data.movie_title}}">
+                        <a href="{{data.movie_imdb_link}}" target="_blank">{{data.movie_title | ellipse}}&nbsp;({{data.title_year}}) </a>
                     </div>
-                    <div class="col-md-4 pull-right movie_country">
-                        Country : {{data.country}}
+                    <div class="col-md-4 pull-right movie_rating">
+                        {{data.content_rating}}
                     </div>
                 </div>
                 <div class="row m_t_10">
@@ -37,7 +37,14 @@
                                 {{data.actor_1_name}}, {{data.actor_2_name}}
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-4 text_align_r">
+                                Country :
+                            </div>
+                            <div class="col-8 pl0">
+                                {{data.country}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,7 +52,7 @@
         <div class="movie_footer">
             Genres: <span class="badge badge-warning">{{data.genres}}</span>
             <div class="budget pull-right">
-                Budget : $ {{data.budget}}
+                Budget : $ {{data.budget | USD}}
             </div>
         </div>
     </div>
