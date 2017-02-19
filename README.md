@@ -1,12 +1,18 @@
 # simility
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+Simility — Movie database!
+- Still work in progress.
 
 ## Build & development
+```sh
+$npm install
+$bower install
+$grunt build
+$grunt serve
+```
 
-Run `grunt` for building and `grunt serve` for preview.
+##Screens
 
-## Testing
+![TopGit](https://raw.githubusercontent.com/naveen09/simility/master/page.png)
 
-Running `grunt test` will run the unit tests with karma.
+
