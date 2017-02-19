@@ -1,0 +1,21 @@
+.header{
+  height:  80px;
+  padding: 5px;
+}
+
+.logo{
+  background: rgba(0, 0, 0, 0) url("../images/logo.png") no-repeat scroll 0 0 / contain ;
+  height: 70px;
+  width: 150px;
+}
+.footer{
+  text-align: center;
+}
+.has-success .form-control-success {
+    content: '/f0b0';
+    font-family: FontAwesome;
+    left:-5px;
+    position:absolute;
+    top:0;
+    background-image: none;
+}
